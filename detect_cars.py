@@ -1,4 +1,4 @@
-import cv2
+import cv2 
 import numpy as np
 import time
 import threading
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 		cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
 	else:
 		cap = cv2.VideoCapture('video_files/LotsOfCarsTrim.mp4')
-	
+
 	try:
 		while(True):
 			ret, img = cap.read()
@@ -121,7 +121,7 @@ if __name__ == '__main__':
 						carPresent = False
 						stopped = False
 
-				cv2.imshow('video', img)
+				cv2.imshow('video', thresh1)
 
 			if cv2.waitKey(33) == 27:
 				break
