@@ -1,4 +1,4 @@
-import cv2
+import cv2 
 import numpy as np
 import time
 import threading
@@ -65,6 +65,8 @@ if __name__ == '__main__':
 		cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
 	else:
 		cap = cv2.VideoCapture('video_files/LotsOfCarsTrim.mp4')
+
+		#cap = cv2.VideoCapture('video_files/Fuller.mp4')
 	
 	try:
 		while(True):
@@ -92,7 +94,7 @@ if __name__ == '__main__':
 				area = cv2.contourArea(cnt)
 				currentTime = time.time()
 
-				if(area > 3000):
+				if(area > 2000):
 
 					if (not carPresent):
 						beginTime = currentTime
