@@ -67,6 +67,7 @@ if __name__ == '__main__':
 		cap = cv2.VideoCapture('video_files/LotsOfCarsTrim.mp4')
 		#cap = cv2.VideoCapture('video_files/Fuller.mp4')
 
+	cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
 	try:
 		while(True):
 			ret, img = cap.read()
@@ -122,7 +123,7 @@ if __name__ == '__main__':
 						carPresent = False
 						stopped = False
 
-				cv2.imshow('video', thresh1)
+				cv2.imshow('video', img)
 
 			if cv2.waitKey(33) == 27:
 				break
