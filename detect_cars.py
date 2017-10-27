@@ -65,9 +65,7 @@ if __name__ == '__main__':
 		cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
 	else:
 		cap = cv2.VideoCapture('video_files/LotsOfCarsTrim.mp4')
-		#cap = cv2.VideoCapture('video_files/Fuller.mp4')
-
-	cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
+		
 	try:
 		while(True):
 			ret, img = cap.read()
