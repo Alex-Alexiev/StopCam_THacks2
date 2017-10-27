@@ -1,4 +1,4 @@
-import cv2 
+import cv2
 import numpy as np
 import time
 import threading
@@ -65,9 +65,9 @@ if __name__ == '__main__':
 		cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
 	else:
 		cap = cv2.VideoCapture('video_files/LotsOfCarsTrim.mp4')
-
 		#cap = cv2.VideoCapture('video_files/Fuller.mp4')
-	
+
+	cap = cv2.VideoCapture('video_files/GreyToyota.mp4')
 	try:
 		while(True):
 			ret, img = cap.read()
@@ -77,10 +77,10 @@ if __name__ == '__main__':
 
 			gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 			filtered = cv2.blur(gray,kernel)
-		
+
 			if starting is None:
 				starting = filtered
-			
+
 			image_sub = cv2.absdiff(starting, filtered)
 			ret,thresh1 = cv2.threshold(image_sub,20,255,cv2.THRESH_BINARY)
 
@@ -117,7 +117,7 @@ if __name__ == '__main__':
 						cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 						#cv2.drawContours(img,contours,-1,(0,255,0),3)
 
-				else: 
+				else:
 					if (((timeElapsed + beginTime) <= currentTime-0.3) and carPresent):
 						master_stopped = stopped
 						carPresent = False
@@ -129,11 +129,11 @@ if __name__ == '__main__':
 				break
 
 		cap.release()
-		cv2.destroyAllWindows()				
+		cv2.destroyAllWindows()
 
 	except:
 		pass
-		
+
 	f = open("fileSystem.txt", "a")
 	if (master_stopped):
 		f.write("1\n")
@@ -150,4 +150,3 @@ if __name__ == '__main__':
 			numberNotStopped += 1
 
 	app.run(debug=True, use_reloader=False, host='0.0.0.0')
-
